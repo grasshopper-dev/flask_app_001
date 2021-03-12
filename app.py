@@ -4,12 +4,14 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', title="Form sample", message="お名前は？")
+    return render_template('index.html', title="Form sample", message="入力してね")
 
 @app.route('/', methods=['POST'])
 def form():
-    field = request.form['field']
-    return render_template('index.html', title="Form sample", message="こんにちは、%sさん！" % field)
+    ck = request.form.get('check')
+    rd = request.form.get('radio')
+    sel = request.form.getlist('sel')
+    return render_template('index.html', title="Form sample", message=[ck, rd, sel])
 
 
 if __name__ == '__main__':

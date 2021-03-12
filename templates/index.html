@@ -15,8 +15,29 @@
         <p>{{message}}</p>
         <div>
             <form method="POST" action="/">
-                <input type="text" name="field">
-                <input type="submit">
+                <div>
+                    <input type="checkbox" name="check" id="ck1">
+                    <label for="ck1">Checkbox</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio" id="r1" value="A">
+                    <label for="r1">radio 1</label>
+                </div>
+                <div>
+                    <input type="radio" name="radio" id="r2" value="B">
+                    <label for="r2">radio 2</label>
+                </div>
+                <div>
+                    <select name="sel" multiple>
+                        <option>Orange</option>
+                        <option>Grape</option>
+                        <option>Lemon</option>
+                        <option>Pineaplle</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit">
+                </div>
             </form>
         </div>
     </body>
