@@ -12,9 +12,14 @@
     </head>
     <body>
         <h1>{{title}}</h1>
+        {% if flg %}
+            <p style="background-color: red; font-weight: bold;">警告！</p>
+        {% else %}
+            <p style="background-color: lightblue; ">Information</p>
+        {% endif %}
         <p>{{message}}</p>
         <div>
-            <form method="POST" action="/">
+            <!-- <form method="POST" action="/">
                 <div>
                     <input type="checkbox" name="check" id="ck1">
                     <label for="ck1">Checkbox</label>
@@ -38,7 +43,7 @@
                 <div>
                     <input type="submit">
                 </div>
-            </form>
+            </form> -->
         </div>
     </body>
 </html>

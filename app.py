@@ -4,7 +4,8 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', title="Form sample", message="入力してね")
+    flg = True
+    return render_template('index.html', title="Form sample", message="入力してね", flg=flg)
 
 @app.route('/', methods=['POST'])
 def form():
