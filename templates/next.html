@@ -10,7 +10,10 @@ Next
 
 {% block content %}
 <p>{{message}}</p>
-<pre>{{data}}</pre>
+<form method="POST" action="/hello/">
+    <input type="text" name="send" value="{{send}}"> 
+    <input type="submit">
+</form>
 {% endblock %}
 
 {% block footer %}

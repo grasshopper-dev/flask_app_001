@@ -1,4 +1,5 @@
 from flask import Flask, render_template, url_for, request
+from flask.views import MethodView
 import random
 
 app = Flask(__name__)
@@ -39,6 +40,19 @@ def sample_processotr():
             total += i
         return total
     return dict(total=total)
+
+class HelloAPI(MethodView):
+    send = ''
+
+    def get(self):
+        return render_template('next.html', title="Next page", message='Please Writting', send=HelloAPI.send)
+    
+    def post(self):
+        HelloAPI.send = request.form.get('send')
+        return render_template('next.html', title="Next page", message='You send:' + HelloAPI.send, send=HelloAPI.send)
+    
+app.add_url_rule('/hello/', view_func=HelloAPI.as_view('hello'))
+
 
 if __name__ == '__main__':
     app.debug = True
