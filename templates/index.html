@@ -12,12 +12,12 @@
     </head>
     <body>
         <h1>{{title}}</h1>
-        {% if flg %}
-            <p style="background-color: red; font-weight: bold;">警告！</p>
-        {% else %}
-            <p style="background-color: lightblue; ">Information</p>
-        {% endif %}
         <p>{{message}}</p>
+        <ul>
+        {% for item in data %}
+            <li>{{item}}</li>
+        {% endfor %}
+        </ul>
         <div>
             <!-- <form method="POST" action="/">
                 <div>
