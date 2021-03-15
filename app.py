@@ -13,6 +13,9 @@ def form():
     sel = request.form.getlist('sel')
     return render_template('index.html', title="Form sample", message=[ck, rd, sel])
 
+@app.route('/next', methods=['GET'])
+def next():
+    return render_template('next.html', title="Next page", message='This is next page sample', data=['One', 'Two', 'Three'])
 
 if __name__ == '__main__':
     app.debug = True
