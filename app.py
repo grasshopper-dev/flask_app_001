@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, session, redirect
 from flask.views import MethodView
 import random
 
@@ -41,15 +41,23 @@ def sample_processotr():
         return total
     return dict(total=total)
 
+app.secret_key = b'random string...'
+
 class HelloAPI(MethodView):
     send = ''
 
     def get(self):
-        return render_template('next.html', title="Next page", message='Please Writting', send=HelloAPI.send)
+        if 'send' in session:
+            msg = 'send: ' + session['send']
+            send = session['send']
+        else:
+            msg = '何か書いてください。'
+            send = ''
+        return render_template('next.html', title="Next page", message=msg, send=send)
     
     def post(self):
-        HelloAPI.send = request.form.get('send')
-        return render_template('next.html', title="Next page", message='You send:' + HelloAPI.send, send=HelloAPI.send)
+        session['send'] = request.form['send']
+        return redirect('/hello/')
     
 app.add_url_rule('/hello/', view_func=HelloAPI.as_view('hello'))
 
