@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def index():
     data = ['Windows', 'macOS', 'Linux', 'ChromeOS']
-    return render_template('index.html', title="Form sample", message='<a href="/">go to top page</a>')
+    return render_template('index.html', title="Form sample", message='※メッセージがあります。')
 
 @app.route('/', methods=['POST'])
 def form():
