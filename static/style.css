@@ -10,3 +10,9 @@ h1 {
 p {
     font-size: 14pt;
 }
+div.footer {
+    text-align: right;
+    border-bottom: 1px solid lightskyblue;
+    color: lightskyblue;
+    margin: 50px 0px;
+}

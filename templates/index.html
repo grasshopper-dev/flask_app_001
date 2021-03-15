@@ -1,50 +1,17 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <title>Index</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-        <!-- <style>
-            body {margin: 10px;}
-            h1 {color: lightgray;font-size: 30pt;}
-            p {font-size: 14pt;}
-        </style> -->
-    </head>
-    <body>
-        <h1>{{title}}</h1>
-        <p>{{message|upper }}</p>
-        <p>{{ 'My name is "%s". Mail address is "%s". '|format(person['name'], person['mail'])}}</p>
-        <ul>
-        {% for item in data|reverse %}
-        <li>{{item}}</li>
-        {% endfor %}
-        </ul>
-        <div>
-            <!-- <form method="POST" action="/">
-                <div>
-                    <input type="checkbox" name="check" id="ck1">
-                    <label for="ck1">Checkbox</label>
-                </div>
-                <div>
-                    <input type="radio" name="radio" id="r1" value="A">
-                    <label for="r1">radio 1</label>
-                </div>
-                <div>
-                    <input type="radio" name="radio" id="r2" value="B">
-                    <label for="r2">radio 2</label>
-                </div>
-                <div>
-                    <select name="sel" multiple>
-                        <option>Orange</option>
-                        <option>Grape</option>
-                        <option>Lemon</option>
-                        <option>Pineaplle</option>
-                    </select>
-                </div>
-                <div>
-                    <input type="submit">
-                </div>
-            </form> -->
-        </div>
-    </body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block headline %}
+{{title}}
+{% endblock %}
+
+{% block content %}
+<p>{{message}}</p>
+{% endblock %}
+
+{% block footer %}
+copyright 2021 YT
+{% endblock %}
