@@ -12,9 +12,13 @@
     </head>
     <body>
         <h1>{{title}}</h1>
-        <p>{{message}}</p>
-        {% set message= 'メッセージはありません。' %}
-        <p>{{message}}</p>
+        <p>{{message|upper }}</p>
+        <p>{{ 'My name is "%s". Mail address is "%s". '|format(person['name'], person['mail'])}}</p>
+        <ul>
+        {% for item in data|reverse %}
+        <li>{{item}}</li>
+        {% endfor %}
+        </ul>
         <div>
             <!-- <form method="POST" action="/">
                 <div>
